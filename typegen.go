@@ -51,7 +51,6 @@ func MakeByteList(in []Byte) (l List) {
 	return l
 }
 
-
 // Short represents the NBT type TAG_Short
 // Type() tells you that Short represents TypeShort.
 func (Short) Type() Type { return TypeShort }
@@ -84,7 +83,6 @@ func MakeShortList(in []Short) (l List) {
 	l.data = in
 	return l
 }
-
 
 // Int represents the NBT type TAG_Int
 // Type() tells you that Int represents TypeInt.
@@ -119,7 +117,6 @@ func MakeIntList(in []Int) (l List) {
 	return l
 }
 
-
 // Long represents the NBT type TAG_Long
 // Type() tells you that Long represents TypeLong.
 func (Long) Type() Type { return TypeLong }
@@ -152,7 +149,6 @@ func MakeLongList(in []Long) (l List) {
 	l.data = in
 	return l
 }
-
 
 // Float represents the NBT type TAG_Float
 // Type() tells you that Float represents TypeFloat.
@@ -187,7 +183,6 @@ func MakeFloatList(in []Float) (l List) {
 	return l
 }
 
-
 // Double represents the NBT type TAG_Double
 // Type() tells you that Double represents TypeDouble.
 func (Double) Type() Type { return TypeDouble }
@@ -220,7 +215,6 @@ func MakeDoubleList(in []Double) (l List) {
 	l.data = in
 	return l
 }
-
 
 // ByteArray represents the NBT type TAG_ByteArray
 // Type() tells you that ByteArray represents TypeByteArray.
@@ -255,7 +249,6 @@ func MakeByteArrayList(in []ByteArray) (l List) {
 	return l
 }
 
-
 // String represents the NBT type TAG_String
 // Type() tells you that String represents TypeString.
 func (String) Type() Type { return TypeString }
@@ -288,7 +281,6 @@ func MakeStringList(in []String) (l List) {
 	l.data = in
 	return l
 }
-
 
 // List represents the NBT type TAG_List
 // Type() tells you that List represents TypeList.
@@ -323,7 +315,6 @@ func MakeListList(in []List) (l List) {
 	return l
 }
 
-
 // Compound represents the NBT type TAG_Compound
 // Type() tells you that Compound represents TypeCompound.
 func (Compound) Type() Type { return TypeCompound }
@@ -356,7 +347,6 @@ func MakeCompoundList(in []Compound) (l List) {
 	l.data = in
 	return l
 }
-
 
 // IntArray represents the NBT type TAG_IntArray
 // Type() tells you that IntArray represents TypeIntArray.
@@ -391,7 +381,6 @@ func MakeIntArrayList(in []IntArray) (l List) {
 	return l
 }
 
-
 // LongArray represents the NBT type TAG_LongArray
 // Type() tells you that LongArray represents TypeLongArray.
 func (LongArray) Type() Type { return TypeLongArray }
@@ -424,9 +413,6 @@ func MakeLongArrayList(in []LongArray) (l List) {
 	l.data = in
 	return l
 }
-
-
-
 
 func (l List) storeData(w io.Writer) (err error) {
 	switch raw := l.data.(type) {
@@ -561,7 +547,7 @@ func (l *List) loadData(r io.Reader, count int) (err error) {
 		raw := make([]Byte, count)
 		for i := 0; i < count; i++ {
 			raw[i], err = loadByte(r)
-			if err!= nil {
+			if err != nil {
 				raw = raw[:i]
 				break
 			}
@@ -573,7 +559,7 @@ func (l *List) loadData(r io.Reader, count int) (err error) {
 		raw := make([]Short, count)
 		for i := 0; i < count; i++ {
 			raw[i], err = loadShort(r)
-			if err!= nil {
+			if err != nil {
 				raw = raw[:i]
 				break
 			}
@@ -585,7 +571,7 @@ func (l *List) loadData(r io.Reader, count int) (err error) {
 		raw := make([]Int, count)
 		for i := 0; i < count; i++ {
 			raw[i], err = loadInt(r)
-			if err!= nil {
+			if err != nil {
 				raw = raw[:i]
 				break
 			}
@@ -597,7 +583,7 @@ func (l *List) loadData(r io.Reader, count int) (err error) {
 		raw := make([]Long, count)
 		for i := 0; i < count; i++ {
 			raw[i], err = loadLong(r)
-			if err!= nil {
+			if err != nil {
 				raw = raw[:i]
 				break
 			}
@@ -609,7 +595,7 @@ func (l *List) loadData(r io.Reader, count int) (err error) {
 		raw := make([]Float, count)
 		for i := 0; i < count; i++ {
 			raw[i], err = loadFloat(r)
-			if err!= nil {
+			if err != nil {
 				raw = raw[:i]
 				break
 			}
@@ -621,7 +607,7 @@ func (l *List) loadData(r io.Reader, count int) (err error) {
 		raw := make([]Double, count)
 		for i := 0; i < count; i++ {
 			raw[i], err = loadDouble(r)
-			if err!= nil {
+			if err != nil {
 				raw = raw[:i]
 				break
 			}
@@ -633,7 +619,7 @@ func (l *List) loadData(r io.Reader, count int) (err error) {
 		raw := make([]ByteArray, count)
 		for i := 0; i < count; i++ {
 			raw[i], err = loadByteArray(r)
-			if err!= nil {
+			if err != nil {
 				raw = raw[:i]
 				break
 			}
@@ -645,7 +631,7 @@ func (l *List) loadData(r io.Reader, count int) (err error) {
 		raw := make([]String, count)
 		for i := 0; i < count; i++ {
 			raw[i], err = loadString(r)
-			if err!= nil {
+			if err != nil {
 				raw = raw[:i]
 				break
 			}
@@ -657,7 +643,7 @@ func (l *List) loadData(r io.Reader, count int) (err error) {
 		raw := make([]List, count)
 		for i := 0; i < count; i++ {
 			raw[i], err = loadList(r)
-			if err!= nil {
+			if err != nil {
 				raw = raw[:i]
 				break
 			}
@@ -669,7 +655,7 @@ func (l *List) loadData(r io.Reader, count int) (err error) {
 		raw := make([]Compound, count)
 		for i := 0; i < count; i++ {
 			raw[i], err = loadCompound(r)
-			if err!= nil {
+			if err != nil {
 				raw = raw[:i]
 				break
 			}
@@ -681,7 +667,7 @@ func (l *List) loadData(r io.Reader, count int) (err error) {
 		raw := make([]IntArray, count)
 		for i := 0; i < count; i++ {
 			raw[i], err = loadIntArray(r)
-			if err!= nil {
+			if err != nil {
 				raw = raw[:i]
 				break
 			}
@@ -693,7 +679,7 @@ func (l *List) loadData(r io.Reader, count int) (err error) {
 		raw := make([]LongArray, count)
 		for i := 0; i < count; i++ {
 			raw[i], err = loadLongArray(r)
-			if err!= nil {
+			if err != nil {
 				raw = raw[:i]
 				break
 			}
@@ -724,7 +710,7 @@ func (l List) Iterate(fn func(int, Tag) error) (err error) {
 	case []Byte:
 		count := len(raw)
 		for i := 0; i < count; i++ {
-err = fn(i, raw[i])
+			err = fn(i, raw[i])
 
 			if err != nil {
 				break
@@ -733,7 +719,7 @@ err = fn(i, raw[i])
 	case []Short:
 		count := len(raw)
 		for i := 0; i < count; i++ {
-err = fn(i, raw[i])
+			err = fn(i, raw[i])
 
 			if err != nil {
 				break
@@ -742,7 +728,7 @@ err = fn(i, raw[i])
 	case []Int:
 		count := len(raw)
 		for i := 0; i < count; i++ {
-err = fn(i, raw[i])
+			err = fn(i, raw[i])
 
 			if err != nil {
 				break
@@ -751,7 +737,7 @@ err = fn(i, raw[i])
 	case []Long:
 		count := len(raw)
 		for i := 0; i < count; i++ {
-err = fn(i, raw[i])
+			err = fn(i, raw[i])
 
 			if err != nil {
 				break
@@ -760,7 +746,7 @@ err = fn(i, raw[i])
 	case []Float:
 		count := len(raw)
 		for i := 0; i < count; i++ {
-err = fn(i, raw[i])
+			err = fn(i, raw[i])
 
 			if err != nil {
 				break
@@ -769,7 +755,7 @@ err = fn(i, raw[i])
 	case []Double:
 		count := len(raw)
 		for i := 0; i < count; i++ {
-err = fn(i, raw[i])
+			err = fn(i, raw[i])
 
 			if err != nil {
 				break
@@ -778,7 +764,7 @@ err = fn(i, raw[i])
 	case []ByteArray:
 		count := len(raw)
 		for i := 0; i < count; i++ {
-err = fn(i, raw[i])
+			err = fn(i, raw[i])
 
 			if err != nil {
 				break
@@ -787,7 +773,7 @@ err = fn(i, raw[i])
 	case []String:
 		count := len(raw)
 		for i := 0; i < count; i++ {
-err = fn(i, raw[i])
+			err = fn(i, raw[i])
 
 			if err != nil {
 				break
@@ -796,7 +782,7 @@ err = fn(i, raw[i])
 	case []List:
 		count := len(raw)
 		for i := 0; i < count; i++ {
-err = fn(i, raw[i])
+			err = fn(i, raw[i])
 
 			if err != nil {
 				break
@@ -805,7 +791,7 @@ err = fn(i, raw[i])
 	case []Compound:
 		count := len(raw)
 		for i := 0; i < count; i++ {
-err = fn(i, raw[i])
+			err = fn(i, raw[i])
 
 			if err != nil {
 				break
@@ -814,7 +800,7 @@ err = fn(i, raw[i])
 	case []IntArray:
 		count := len(raw)
 		for i := 0; i < count; i++ {
-err = fn(i, raw[i])
+			err = fn(i, raw[i])
 
 			if err != nil {
 				break
@@ -823,7 +809,7 @@ err = fn(i, raw[i])
 	case []LongArray:
 		count := len(raw)
 		for i := 0; i < count; i++ {
-err = fn(i, raw[i])
+			err = fn(i, raw[i])
 
 			if err != nil {
 				break
@@ -893,7 +879,7 @@ func (l List) Length() int {
 		return len(raw)
 
 	default:
-	 	return 0
+		return 0
 	}
 }
 
@@ -962,7 +948,7 @@ func MakeList(in interface{}) (l List, err error) {
 }
 
 // Element gives the ith element of l.
-func (l List)Element(i int) (out Tag, ok bool) {
+func (l List) Element(i int) (out Tag, ok bool) {
 	switch data := l.data.(type) {
 
 	case []End:
