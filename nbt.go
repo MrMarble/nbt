@@ -178,7 +178,7 @@ func printIndented(w io.Writer, p Tag, prefix interface{}, indent int) {
 		fmt.Fprintf(w, "[%d %v list] {", length, x.Contents)
 		if length != 0 {
 			fmt.Fprintf(w, "\n")
-			x.Iterate(func(i int, t Tag) error { printIndented(w, p, i, indent+1); return nil })
+			x.Iterate(func(i int, t Tag) error { printIndented(w, t, i, indent+1); return nil })
 		}
 		fmt.Fprintf(w, "%*s}", indent*2, "")
 	case Compound:
